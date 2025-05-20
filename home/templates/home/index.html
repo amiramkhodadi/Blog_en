@@ -71,6 +71,13 @@ https://templatemo.com/tm-551-stand-blog
                 {% if request.user.is_authenticated%}
                 <li class="nav-item">
                     <div class="d-flex">
+                        {% if user.profile.image.url %}
+                             <img src="{{ user.profile.image.url }}" class="rounded-circle " width="30" height="30" alt="no picture">
+                            {% else %}
+                            <img src="{% static 'images/profile.png' %}" class="rounded-circle " width="30" height="30" alt="no picture">
+
+                            {% endif %}
+                            </img>
                             {% if user.first_name %}
                              <a class="nav-link" href="">{{ user.first_name}}</a>
                              {% else %}
