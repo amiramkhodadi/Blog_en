@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.utils import timezone
 
 from django.contrib.auth.models import User
@@ -36,6 +37,9 @@ class Article(models.Model):
     published = models.BooleanField(default=True)
     objects = models.Manager()
     custom_objects = ArticleManager()
+
+    def get_absolute_url(self):
+        return reverse('article_detail', args=[self.id])
 
 
 

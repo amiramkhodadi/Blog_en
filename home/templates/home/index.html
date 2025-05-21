@@ -11,13 +11,13 @@ Home Page
         <div class="owl-banner owl-carousel">
           {% for article in articles %}
               <div class="item">
-            <a href={% url 'article_detail' article.id %} ><img src={{article.image.url}} alt="{{ article.title}}"/></a>
+            <a href='{{article.get_absolute_url}}' ><img src={{article.image.url}} alt="{{ article.title}}"/></a>
             <div class="item-content">
               <div class="main-content">
                 <div class="meta-category">
                   <span>{{ article.category.first.name }}</span>
                 </div>
-                <a href={% url 'article_detail' article.id %} ><h4>{{ article.title}}</h4></a>
+                <a href='{{article.get_absolute_url}}' ><h4>{{ article.title}}</h4></a>
                 <ul class="post-info">
                   <li><a href="#">{{ article.author }}</a></li>
                   <li><a href="#">{{ article.created_date}}</a></li>
