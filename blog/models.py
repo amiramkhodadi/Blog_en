@@ -37,6 +37,7 @@ class Article(models.Model):
     published = models.BooleanField(default=True)
     objects = models.Manager()
     custom_objects = ArticleManager()
+    slug = models.SlugField(unique=True)
 
     def get_absolute_url(self):
         return reverse('article_detail', args=[self.id])
