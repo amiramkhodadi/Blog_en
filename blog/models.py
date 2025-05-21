@@ -9,6 +9,19 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class ArticleManager(models.Manager):
+    def get_queryset(self):
+        return super(ArticleManager,self).get_queryset().filter(status=True)
+    #
+    # def counter(self):
+    #
+    #     return len(self.all())
+    #
+    # def published(self):
+    #     return self.filter(published=True)
+
+
+
 class Article(models.Model):
     title = models.CharField(max_length=200 ,editable=False ,help_text='enter your article title' )
     content = models.TextField()
@@ -17,6 +30,12 @@ class Article(models.Model):
     image = models.ImageField(upload_to='blog/images/')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
+    floatfield = models.FloatField(default=1)
+    myfile = models.FileField(upload_to='blog/file/')
+    status = models.BooleanField(default=True)
+    published = models.BooleanField(default=True)
+    objects = models.Manager()
+    custom_objects = ArticleManager()
 
 
 
