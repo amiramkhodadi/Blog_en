@@ -107,13 +107,13 @@ https://templatemo.com/tm-551-stand-blog
         <div class="owl-banner owl-carousel">
           {% for article in articles %}
               <div class="item">
-            <img src={{article.image.url}} alt="{{ article.title}}"/>
+            <a href={% url 'article_detail' article.id %} ><img src={{article.image.url}} alt="{{ article.title}}"/></a>
             <div class="item-content">
               <div class="main-content">
                 <div class="meta-category">
                   <span>{{ article.category.first.name }}</span>
                 </div>
-                <a href="post-details.html"><h4>{{ article.title}}</h4></a>
+                <a href={% url 'article_detail' article.id %} ><h4>{{ article.title}}</h4></a>
                 <ul class="post-info">
                   <li><a href="#">{{ article.author }}</a></li>
                   <li><a href="#">{{ article.created_date}}</a></li>
