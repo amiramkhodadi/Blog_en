@@ -3,6 +3,8 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.text import slugify
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -37,10 +39,16 @@ class Article(models.Model):
     published = models.BooleanField(default=True)
     objects = models.Manager()
     custom_objects = ArticleManager()
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True , blank=True)
 
     def get_absolute_url(self):
         return reverse('article_detail', args=[self.id])
+
+   def save(self , force_insert=False, force_update=False, using=None, update_fields=None):
+       self.slug = slugify(self.title)
+       super(Article, self).save()
+
+
 
 
 
