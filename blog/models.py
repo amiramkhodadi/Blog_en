@@ -35,7 +35,6 @@ class Article(models.Model):
     status = models.BooleanField(default=True)
     published = models.BooleanField(default=True)
     objects = models.Manager()
-
     custom_objects = ArticleManager()
 
 
