@@ -26,7 +26,7 @@ class ArticleManager(models.Manager):
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=200 ,editable=False ,help_text='enter your article title' )
+    title = models.CharField(max_length=200)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -42,9 +42,15 @@ class Article(models.Model):
     slug = models.SlugField(unique=True , blank=True)
 
     def get_absolute_url(self):
-        return reverse('article_detail', args=[self.id])
+        return reverse('article_detail', args=[self.slug])
 
-   def save(self , force_insert=False, force_update=False, using=None, update_fields=None):
+    def save(self,
+        *args,
+        force_insert=False,
+        force_update=False,
+        using=None,
+        update_fields=None,):
+
        self.slug = slugify(self.title)
        super(Article, self).save()
 

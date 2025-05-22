@@ -5,6 +5,6 @@ from blog.models import Article
 
 
 
-def article_detail(request , pk):
-    article = get_object_or_404(Article, pk=pk)
+def article_detail(request , slug):
+    article = get_object_or_404(Article, slug=slug)
     return render(request , 'blog/post_details.html',{'article' : article })
