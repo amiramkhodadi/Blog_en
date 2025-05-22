@@ -192,18 +192,13 @@ Home Page
                     </div>
                     <div class="content">
                       <ul>
+                          {% for article in recent_articles%}
                         <li><a href="post-details.html">
-                          <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
-                          <span>May 31, 2020</span>
+                          <h5>{{ article.content}}</h5>
+                          <span>{{ article.created_date }}</span>
                         </a></li>
-                        <li><a href="post-details.html">
-                          <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
-                          <span>May 28, 2020</span>
-                        </a></li>
-                        <li><a href="post-details.html">
-                          <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
-                          <span>May 14, 2020</span>
-                        </a></li>
+                          {% endfor %}
+
                       </ul>
                     </div>
                   </div>
