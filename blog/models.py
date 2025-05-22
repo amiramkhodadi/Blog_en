@@ -24,6 +24,12 @@ class ArticleManager(models.Manager):
     #     return self.filter(published=True)
 
 
+class Meta:
+    # braye order sazi az hmon order by estefade konim kheili bhtre v inja faqat jane amozeshi v kar ba meta ro dare v ba search zadan meta class in django mitonim bishtr rajeb in class ettelaat kasb konim
+    ordering = ['-created_date']
+    # verbose_name = 'X' ==>> to admin panel dg model ha b esm X seda zade mishan
+    # verbose_name_plural = 'Xes' ==>> to admin panel zamani k majmoeii az X ha ro dashte bashnd v b ma onaro Xes moarefi mikone v ma
+    # in do mord bala braye shakhsi sazi  and v braye modriat b zaban farsi besyar kar amad and
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
