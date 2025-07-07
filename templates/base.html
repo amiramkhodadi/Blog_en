@@ -51,7 +51,7 @@ https://templatemo.com/tm-551-stand-blog
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item ">
                 <a class="nav-link" href='#'>Home
                   <span class="sr-only">(current)</span>
                 </a>
@@ -59,14 +59,17 @@ https://templatemo.com/tm-551-stand-blog
               <li class="nav-item">
                 <a class="nav-link" href='#'>About Us</a>
               </li>
+
+{#            active konnde button faqat braye all artcles faal shde v zamani k url haye baqie nav drst shde and baid faal shavand#}
+
               <li class="nav-item">
-                <a class="nav-link" href={% url 'article_list' %}>Article List</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'articles_list' %}active{% endif %}" href={% url 'articles_list' %} >All Articles</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href='#'>Post Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'article_list' %}">Contact Us</a>
+                <a class="nav-link" href="#">Contact Us</a>
               </li>
                 {% if request.user.is_authenticated%}
                 <li class="nav-item">
