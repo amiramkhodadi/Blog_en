@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # install clean up for project
  'django_cleanup.apps.CleanupConfig',
+'django_social_share'
 
 ]
 

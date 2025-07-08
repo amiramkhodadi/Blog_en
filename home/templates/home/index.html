@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load social_share %}
 {% block title %}
 Home Page
 {% endblock %}
@@ -89,8 +90,8 @@ Home Page
                           <div class="col-6">
                             <ul class="post-share">
                               <li><i class="fa fa-share-alt"></i></li>
-                              <li><a href="#">Facebook</a>,</li>
-                              <li><a href="#"> Twitter</a></li>
+                              <li>{% post_to_whatsapp article.get_absolute_url "WhatsApp" %}</li>
+
                             </ul>
                           </div>
                         </div>
