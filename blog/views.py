@@ -8,8 +8,9 @@ from blog.models import Article, Category, Comment
 def article_detail(request , slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == "POST":
+        comment_id = request.POST.get('comment_id')
         content = request.POST.get('content')
-        Comment.objects.create(content=content, article=article, author=request.user)
+        Comment.objects.create(content=content, article=article, author=request.user, parent_id =comment_id)
     return render(request , 'blog/post_details.html',{'article' : article })
 
 def article_list(request ):
