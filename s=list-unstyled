@@ -1,0 +1,42 @@
+[33md24da29[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m create model and admin for comments
+[33mf41b388[m add request.resolver_match.url_name for activate page navbar yellow
+[33m159f3d7[m add pagination for all articles page
+[33mbf51df3[m add social share for whatsapp in articles
+[33m5b79c74[m پیام جدید دلخواه
+[33m73cdb90[m create article list by categories filter
+[33m6d39a06[m create CP file for project and recent article function for side bar
+[33m059ecc2[m create sidebar file for split sidebar
+[33m703d676[m split base file for better manage
+[33mbb3f34c[m change sth in project for better view
+[33m6ab6885[m nothing
+[33m2f94509[m nothing
+[33m30945d4[m nothing
+[33mba4beaa[m nothing
+[33mb9a3655[m nothing
+[33m1b0efe0[m nothing
+[33m9edea80[m nothing
+[33m6233238[m nothing
+[33m9006ea2[m the last push for to night
+[33mc128585[m create simple article list page
+[33md9330e8[m create template for article list
+[33m8003f19[m create url and view for article list
+[33m8d355f9[m dynamic home page for recent three new article post
+[33m286e55a[m add meta class for ordering article
+[33ma298a90[m debug add recent article to home page
+[33m87c7ba7[m add recent article to home page
+[33m726df48[m create recent article for home view
+[33mf8cee77[m fix slug bag
+[33ma8a4e69[m repaire save method with slug for model
+[33md8b69f9[m add slug obj for article model
+[33m92c9e37[m replace template urls tag by get_absolute_url method
+[33m0083f1a[m create base.html for projetc and set inheritance for home and detail page
+[33m6c6a6de[m make buuton for go to detail page
+[33ma5a7329[m create post detail page
+[33mdeaa42e[m update article model and create article manager
+[33m0ca8645[m update article model and create article manager
+[33me647a1f[m add profile for user with image
+[33m85b7116[m delete test
+[33mc9eca75[m update ignore file
+[33m8cf250e[m Resolve conflicts
+[33m5979167[m Initial commit
+[33mc24df64[m upload project

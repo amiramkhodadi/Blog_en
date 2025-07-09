@@ -100,54 +100,57 @@
                                         </h2>
                                     </div>
                                     <div class="content">
-                                        <ul>
+                                        <ul class="list-unstyled">
                                             {% for comment in article.comments.all %}
-
                                                 {% if comment.parent == None %}
-
-                                                    <li>
-                                                        <div class="author-thumb">
+                                                    <!-- Parent Comment -->
+                                                    <li class="d-flex mb-5 pb-4 border-bottom border-secondary-subtle">
+                                                        <div class="me-4">
                                                             {% if comment.user.profile.image %}
                                                                 <img src="{{ comment.user.profile.image.url }}"
-                                                                     alt="Profile Photo">
+                                                                     alt="Profile Photo" class="rounded-circle shadow"
+                                                                     style="width: 60px; height: 60px; object-fit: cover;">
                                                             {% else %}
                                                                 <img src="{% static 'images/default-image.jpg' %}"
-                                                                     alt="Default Photo">
+                                                                     alt="Default Photo" class="rounded-circle shadow"
+                                                                     style="width: 60px; height: 60px; object-fit: cover;">
                                                             {% endif %}
                                                         </div>
-                                                        <div class="right-content">
-                                                            <h4>{{ comment.author }}<span>{{ comment.created_date }}</span>
-                                                            </h4>
-                                                            <p>{{ comment.content }}</p>
+                                                        <div class="flex-grow-1">
+                                                            <h6 class="fw-bold mb-2">{{ comment.author }}</h6>
+                                                            <small class="text-muted d-block mb-2">{{ comment.created_date }}</small>
+                                                            <p class="fs-6 text-dark">{{ comment.content }}</p>
                                                         </div>
                                                     </li>
-                                                    {% for reply in comment.replies.all %}
-                                                        <li class="replied">
-                                                            <div class="author-thumb">
 
-                                                                {% if comment.user.profile.image %}
-                                                                    <img src="{{ comment.user.profile.image.url }}"
-                                                                         alt="Profile Photo">
+                                                    <!-- Replies -->
+                                                    {% for reply in comment.replies.all %}
+                                                        <li class="d-flex mb-4 ms-5 bg-body-secondary pl-lg-5  rounded">
+                                                            <div class="me-3">
+                                                                {% if reply.user.profile.image %}
+                                                                    <img src="{{ reply.user.profile.image.url }}"
+                                                                         alt="Reply Profile"
+                                                                         class="rounded-circle shadow"
+                                                                         style="width: 50px; height: 50px; object-fit: cover;">
                                                                 {% else %}
                                                                     <img src="{% static 'images/default-image.jpg' %}"
-                                                                         alt="Default Photo">
+                                                                         alt="Default Photo"
+                                                                         class="rounded-circle shadow"
+                                                                         style="width: 50px; height: 50px; object-fit: cover;">
                                                                 {% endif %}
                                                             </div>
-                                                            <div class="right-content">
-                                                                <h4>{{ reply.author }}<span>{{ reply.created_date }}</span>
-                                                                </h4>
-                                                                <p>{{ reply.content }}</p>
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="fw-semibold mb-2">{{ reply.author }}</h6>
+                                                                <small class="text-muted d-block mb-2">{{ reply.created_date }}</small>
+                                                                <p class="mb-0 text-dark">{{ reply.content }}</p>
                                                             </div>
                                                         </li>
-
-
                                                     {% endfor %}
                                                 {% endif %}
-
                                             {% endfor %}
-
-
                                         </ul>
+
+
                                     </div>
                                 </div>
                             </div>
