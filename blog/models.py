@@ -72,3 +72,14 @@ class Article(models.Model):
     # pub_date = models.DateField(default=timezone.now())  ==> , unique_for_date='pub_date'
     def __str__(self):
         return f'{self.title} -{self.created_date}'
+
+
+class Comment (models.Model):
+    author = models.ForeignKey(User , on_delete=models.CASCADE,related_name='comments')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE,related_name='comments')
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    parent = models.ForeignKey('self', blank=True, null=True, related_name='replies', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.author} - {self.content}'

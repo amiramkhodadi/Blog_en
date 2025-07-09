@@ -20,9 +20,9 @@ Home Page
                 </div>
                 <a href='{{article.get_absolute_url}}' ><h4>{{ article.title}}</h4></a>
                 <ul class="post-info">
-                  <li><a href="#">{{ article.author }}</a></li>
-                  <li><a href="#">{{ article.created_date}}</a></li>
-                  <li><a href="#">12 Comments</a></li>
+                  <li><a href='{{article.get_absolute_url}}>{{ article.author }}</a></li>
+                  <li><a href='{{article.get_absolute_url}}>{{ article.created_date}}</a></li>
+                  <li><a >12 Comments</a></li>
                 </ul>
               </div>
             </div>

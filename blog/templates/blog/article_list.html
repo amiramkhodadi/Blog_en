@@ -55,7 +55,7 @@
                     </div>
                     <div class="down-content">
                       <span>{{ article.category.first}}</span>
-                      <a href="post-details.html"><h4>{{ article.title}}</h4></a>
+                      <a href='{{article.get_absolute_url}}'><h4>{{ article.title}}</h4></a>
                       <ul class="post-info">
                         <li><a href="#">{{ article.title}}</a></li>
                         <li><a href="#">{{ article.created_date}}</a></li>
