@@ -151,6 +151,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {% if request.user.is_authenticated %}
                             <div class="col-lg-12">
                                 <div class="sidebar-item submit-comment">
                                     <div class="sidebar-heading">
@@ -180,7 +182,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            {% else %}
+                                <div class="container mt-4 mb-4 d-flex justify-content-center">
+                                    <a href="{% url 'login' %}" class="btn btn-danger px-4 py-2">
+                                        for sending comment plaese login
+                                    </a>
+                                </div>
+
+
+                            {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-4">

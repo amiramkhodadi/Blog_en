@@ -49,8 +49,8 @@
                 {% else %}
                 <li class="nav-item">
                     <div class="d-flex">
-                        <a class="nav-link" href="login/">Login  </a>
-                        <a class="nav-link" href="register/">/  Register</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login </a>
+                        <a class="nav-link" href="{% url 'register' %}">/ Register</a>
                     </div>
                 </li>
                 {% endif %}
