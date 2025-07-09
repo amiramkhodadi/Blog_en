@@ -60,6 +60,9 @@ class Article(models.Model):
        self.slug = slugify(self.title)
        super(Article, self).save()
 
+        # class Meta:
+        #     ordering = ['-created_date']
+
 
 
 
