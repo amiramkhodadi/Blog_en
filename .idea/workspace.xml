@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="119cde3f-b392-4f48-8604-e96a775ba3d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
@@ -14,6 +15,9 @@
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/post_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/post_details.html" afterDir="false" />
 >>>>>>> b8c3e7b (repair comment session all it done and good work)
     </list>
+=======
+    <list default="true" id="119cde3f-b392-4f48-8604-e96a775ba3d5" name="Changes" comment="" />
+>>>>>>> c6bf5e9 (baqimande)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
