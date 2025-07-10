@@ -22,18 +22,19 @@
 
                           <div class="col-lg-12">
                           <div class="col-lg-12">
-                         {{ form.non_field_errors}}
-                              {% if form.name.errors %}
-                                  <div class="alert alert-danger">{{ form.name.errors }}</div>
-                              {% endif %}
-                          {{ form.name.label }} :
-                              {{ form.name }}
-
-                          {% if form.text.errors %}
-                                  <div class="alert alert-danger">{{ form.text.errors }}</div>
-                              {% endif %}
-                          {{ form.text.label }}
-                              {{ form.text }}
+{#                         {{ form.non_field_errors}}#}
+{#                              {% if form.name.errors %}#}
+{#                                  <div class="alert alert-danger">{{ form.name.errors }}</div>#}
+{#                              {% endif %}#}
+{#                          {{ form.name.label }} :#}
+{#                              {{ form.name }}#}
+{##}
+{#                          {% if form.text.errors %}#}
+{#                                  <div class="alert alert-danger">{{ form.text.errors }}</div>#}
+{#                              {% endif %}#}
+{#                          {{ form.text.label }}#}
+{#                              {{ form.text }}#}
+                              {{ form }}
 
                             <fieldset>
                               <button type="submit" id="form-submit" class="main-button">Send Message</button>

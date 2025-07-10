@@ -3,8 +3,10 @@ from django.core.validators import ValidationError
 
 
 class ContactUsForm(forms.Form):
-    name = forms.CharField(label='Name', max_length=50)
+    name = forms.CharField(label='Name', max_length=50 , required=False)
     text = forms.CharField(max_length=100, label='Your Message')
+    date = forms.DateField(label='Date' , widget = forms.SelectDateWidget)
+
 
 # dar form ag bkhahi, k bein field haye motfavet moqayese ii anjam bedim baid to method clean onaro modriat konim v havasemon b in bashe k tebq ketabkhone import shde dar bala khata haro raise konim v hmchnin khata haye in qesmat dar non filed errors namayesh dade mishan
     def clean(self):
