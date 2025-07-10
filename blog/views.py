@@ -47,12 +47,18 @@ def contact_us(request):
     if request.method == 'POST':
         form = MassageForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data.get('name')
-            title = form.cleaned_data.get('title')
-            content = form.cleaned_data.get('content')
-            email = form.cleaned_data.get('email')
-            Message.objects.create(name=name, title=title, content=content, email=email)
-            redirect('contact_us')
+            # name = form.cleaned_data.get('name')
+            # title = form.cleaned_data.get('title')
+            # content = form.cleaned_data.get('content')
+            # email = form.cleaned_data.get('email')
+            # Message.objects.create(name=name, title=title, content=content, email=email)
+            # tamami kar haie bala ro mitonim b sorat kholse shde mesl zir benevisim v dar data base save konim
+            form.save()
+
+            # hala ag mikhahim roye iki az in field ha taqirati emal konim b sorat zir amal mikonim
+            # instance = form.save(commit=False)
+            # instance.name  = "amir" ==>> ba inkar miaim name kar bar ro qabl azinke dar data base save beshe b amir taqir bedim v ya az  in ravesh braye baqie taqirat estefade komnim
+            #
     else:
         form = MassageForm()
     return render(request , 'blog/contact_us.html' ,    {'form': form})

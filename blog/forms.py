@@ -35,6 +35,12 @@ class MassageForm(forms.ModelForm):
       model = Message
       fields = '__all__'
 
+    def clean_name(self):
+      name = self.cleaned_data.get('name')
+      if 'a' in name :
+        print("lkkerg")
+      return name
+
         # {# in khat b in manzore k ma baid braye hame field haye modelemon y input baiud baraye on dar nazar bgirim#} ag all bznim yani braye hame injad konm ama ge b sorat tuple ono benvisim faqat braye field haye tuple miad v input misaze
 
 
