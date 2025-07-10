@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from blog.models import Article, Category, Comment
-from blog.forms import ContactUsForm
+from blog.models import Article, Category, Comment, Message
+from blog.forms import  MassageForm
 
 
 def article_detail(request , slug):
@@ -45,13 +45,14 @@ def search_article(request):
 
 def contact_us(request):
     if request.method == 'POST':
-        form = ContactUsForm(request.POST)
+        form = MassageForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data.get('name'))
-            return redirect("contact_us")
-
-        else :
-            form = ContactUsForm(request.POST)
+            name = form.cleaned_data.get('name')
+            title = form.cleaned_data.get('title')
+            content = form.cleaned_data.get('content')
+            email = form.cleaned_data.get('email')
+            Message.objects.create(name=name, title=title, content=content, email=email)
+            redirect('contact_us')
     else:
-        form = ContactUsForm()
+        form = MassageForm()
     return render(request , 'blog/contact_us.html' ,    {'form': form})

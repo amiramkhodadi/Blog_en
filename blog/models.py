@@ -86,3 +86,14 @@ class Comment (models.Model):
 
     def __str__(self):
         return f'{self.author} - {self.content}'
+
+class Message(models.Model):
+    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    email = models.EmailField()
+    created_date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f'{self.name} , {self.title} '
