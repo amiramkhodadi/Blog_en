@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -47,8 +47,9 @@ def contact_us(request):
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data.get('text'))
-            # pass
+            print(form.cleaned_data.get('name'))
+            return redirect("contact_us")
+
         else :
             form = ContactUsForm(request.POST)
     else:
