@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from blog.models import Article, Category, Comment
+from blog.forms import ContactUsForm
 
 
 def article_detail(request , slug):
@@ -41,3 +42,15 @@ def search_article(request):
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
     return render(request, 'blog/article_list.html', {'articles': page_obj})
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data.get('text'))
+            # pass
+        else :
+            form = ContactUsForm(request.POST)
+    else:
+        form = ContactUsForm()
+    return render(request , 'blog/contact_us.html' ,    {'form': form})
