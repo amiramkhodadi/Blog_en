@@ -32,3 +32,12 @@ def category_detail(request , pk=None):
     # articles = category.article_set.all() ==>> az rename shde on bb sorat paiini estefade mikonim chon to model hamono brash rename tarif karde im
     articles = category.articles.all()
     return render(request , 'blog/article_list.html' , {'articles' : articles })
+
+
+def search_article(request):
+    q = request.GET.get("q")
+    articles = Article.objects.filter(title__icontains=q)
+    paginator = Paginator(articles, 1)
+    page = request.GET.get('page')
+    page_obj = paginator.get_page(page)
+    return render(request, 'blog/article_list.html', {'articles': page_obj})
