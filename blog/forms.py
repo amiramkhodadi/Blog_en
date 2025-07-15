@@ -1,3 +1,5 @@
+from django.template.defaultfilters import title
+
 from blog.models import Message
 
 from django import forms
@@ -35,14 +37,22 @@ class MassageForm(forms.ModelForm):
       model = Message
       fields = '__all__'
 
-    def clean_name(self):
-      name = self.cleaned_data.get('name')
-      if 'a' in name :
-        print("lkkerg")
-      return name
-
-        # {# in khat b in manzore k ma baid braye hame field haye modelemon y input baiud baraye on dar nazar bgirim#} ag all bznim yani braye hame injad konm ama ge b sorat tuple ono benvisim faqat braye field haye tuple miad v input misaze
-
-
-        # exclude = ['user'] ==>> in bra zamanie k ma mikhaim hme braye hme feild ha input dashte bashim b joz inaii k dar in qesmat minevisim
-
+    #
+    # def clean_name(self):
+    #   name = self.cleaned_data.get('name')
+    #   if 'a' in name :
+    #     print("lkkerg")
+    #   return name
+    #
+    #     {# in khat b in manzore k ma baid braye hame field haye modelemon y input baiud baraye on dar nazar bgirim#} ag all bznim yani braye hame injad konm ama ge b sorat tuple ono benvisim faqat braye field haye tuple miad v input misaze
+    #
+    #
+    #     exclude = ['user'] ==>> in bra zamanie k ma mikhaim hme braye hme feild ha input dashte bashim b joz inaii k dar in qesmat minevisim
+    #
+    #     zamani k ma miaim az in model class bandi ba tavajog b hme field ha automatic mikonim ono az in ravesh zir mitonim k b field haye khodmon widget bedim b ono shakhsi sazi konim
+    #     tnha nokte iii k dare esm bakhsh haye mokhtakef daron dic widgets baid mesl model ma bashe
+    #     zir y mesal braye zibatr kardn input haye name v title avorde shde
+      widgets = {
+          "name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Name : '}),
+          "title": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Title : '}),
+      }`
