@@ -80,9 +80,9 @@ def edit_profile(request):
 	user = request.user
 	form = Profileform(instance=user)
 	if request.method == 'POST':
-		form = Profileform(data=request.POST, instance=user)
+		form = Profileform( data=request.POST, instance=user)
 		if form.is_valid():
 			form.save()
-			# return redirect('profile')
+			return redirect('profile')
 
 	return render(request, 'account/edit_profile.html', {"form" : form })

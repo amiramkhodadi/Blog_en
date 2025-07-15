@@ -1,5 +1,6 @@
 from django import  forms
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 from account.models import Profile
@@ -20,5 +21,5 @@ class Loginform(forms.Form):
 
 class Profileform(forms.ModelForm):
     class Meta:
-            model = Profile
-            fields = '__all__'
+        model = User
+        fields = ('first_name','last_name','email')

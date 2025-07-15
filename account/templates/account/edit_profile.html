@@ -72,28 +72,16 @@
             </div>
             <div class="card-body row g-4">
                 <div class="col-md-6">
-                    <label class="form-label">Full Name</label>
-                    {{ form.full_name|add_class:"form-control"}}
+                    <label class="form-label">First Name</label>
+                    {{ form.first_name|add_class:"form-control" }}
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">Father Name</label>
-                    {{ form.father_name|add_class:"form-control" }}
+                    <label class="form-label">Last Name</label>
+                    {{ form.last_name|add_class:"form-control" }}
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label">National Code</label>
-                    {{ form.meli_code|add_class:"form-control" }}
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">City</label>
-                    {{ form.city|add_class:"form-control" }}
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label">Address</label>
-                    {{ form.address|add_class:"form-control" }}
-                </div>
-                <div class="col-md-12">
-                    <label class="form-label">Profile Picture</label>
-                    {{ form.image|add_class:"form-control" }}
+                    <label class="form-label">Email</label>
+                    {{ form.email|add_class:"form-control" }}
                 </div>
             </div>
             <div class="card-footer text-end">
