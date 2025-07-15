@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<style>
+    .profile-header {
+        position: relative;
+        height: 280px;
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+
+    .profile-header::before {
+        content: "";
+        {#background-image: url('{{ profile.image.url if profile.image else static("images/profile.png") }}');#}
+        background-size: cover;
+        background-position: center;
+        filter: blur(10px);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    .profile-avatar {
+        position: absolute;
+        z-index: 2;
+        bottom: -50px;
+        left: 2rem;
+        border: 4px solid white;
+        border-radius: 50%;
+        width: 120px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        background-color: white;
+    }
+
+    .card-body input,
+    .card-body select,
+    .card-body textarea {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0;
+        background-color: #f8f9fa;
+    }
+
+    .card-body input:focus,
+    .card-body select:focus,
+    .card-body textarea:focus {
+        box-shadow: none;
+        border-color: #0d6efd;
+        background-color: #fff;
+    }
+
+    @media (max-width: 576px) {
+        .profile-avatar {
+            width: 80px;
+        }
+    }
+</style>
+
+<div class="container my-5">
+    <div class="profile-header mb-5">
+{#        <img class="profile-avatar" src="{{ profile.image.url if profile.image else static('images/profile.png') }}" alt="User image">#}
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Edit {{ request.user.username }} Profile</h4>
+            </div>
+            <div class="card-body row g-4">
+                <div class="col-md-6">
+                    <label class="form-label">Full Name</label>
+                    {{ form.full_name|add_class:"form-control"}}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Father Name</label>
+                    {{ form.father_name|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">National Code</label>
+                    {{ form.meli_code|add_class:"form-control" }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">City</label>
+                    {{ form.city|add_class:"form-control" }}
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Address</label>
+                    {{ form.address|add_class:"form-control" }}
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Profile Picture</label>
+                    {{ form.image|add_class:"form-control" }}
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

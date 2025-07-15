@@ -18,8 +18,7 @@ class Loginform(forms.Form):
         raise ValidationError('Username or password is incorrect')
 
 
-class Profileform(forms.Form):
+class Profileform(forms.ModelForm):
     class Meta:
-        model = Profile
-        exclude = ['user']
-
+            model = Profile
+            fields = '__all__'

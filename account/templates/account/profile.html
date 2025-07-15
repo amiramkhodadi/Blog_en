@@ -12,8 +12,8 @@
 
     .profile-header::before {
         content: "";
-         {% if user_profile.image.url %}
-        background-image: url('{{ user_profile.image.url}}');
+         {% if user_profile.profile.image.url %}
+        background-image: url('{{ user_profile.profile.image.url}}');
         {% endif %}
         background-size: cover;
         background-position: center;
@@ -49,8 +49,8 @@
 
 <div class="container ">
     <div class="profile-header mb-5">
-        {% if user_profile.image %}
-        <img class="profile-avatar" src="{{ user_profile.image.url }}" alt="User image">
+        {% if user_profile.profile.image %}
+        <img class="profile-avatar" src="{{ user_profile.profile.image.url }}" alt="User image">
     {% else %}
         <img src="{% static 'images/profile.png' %}" class="rounded-circle " width="30" height="30" alt="no picture">
 
@@ -59,41 +59,41 @@
 
     <div class="card shadow-lg">
         <div class="card-header bg-primary text-white">
-            <h4 class="mb-0">{{ user_profile.user.username.upper }}'s Profile</h4>
+            <h4 class="mb-0">{{ user_profile.username }}'s Profile</h4>
         </div>
         <div class="card-body row g-4">
             <div class="col-md-6">
                 <label class="form-label">Username</label>
-                <input type="text" class="form-control" value="{{ user_profile.user.username }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.user.username }}" disabled>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-control" value="{{ user_profile.full_name }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.full_name }}" disabled>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Father Name</label>
-                <input type="text" class="form-control" value="{{ user_profile.father_name }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.father_name }}" disabled>
             </div>
             <div class="col-md-6">
                 <label class="form-label">National Code</label>
-                <input type="text" class="form-control" value="{{ user_profile.meli_code }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.meli_code }}" disabled>
             </div>
             <div class="col-md-6">
                 <label class="form-label">City</label>
-                <input type="text" class="form-control" value="{{ user_profile.city }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.city }}" disabled>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Address</label>
-                <input type="text" class="form-control" value="{{ user_profile.address }}" disabled>
+                <input type="text" class="form-control" value="{{ user_profile.profile.address }}" disabled>
             </div>
             <div class="col-md-12">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control" value="{{ user_profile.user.email }}" disabled>
+                <input type="email" class="form-control" value="{{ user_profile.profile.user.email }}" disabled>
             </div>
         </div>
-        <div class="card-footer text-end">
-{#            <a href="{% url 'edit_profile' %}" class="btn btn-outline-primary">Edit Profile</a>#}
-        </div>
+        <div class="card-footer d-flex justify-content-center">
+    <a href="{% url 'edit_profile' %}" class="btn btn-outline-primary">Edit Profile</a>
+</div>
     </div>
 </div>
 {% endblock %}

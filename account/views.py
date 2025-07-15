@@ -1,3 +1,5 @@
+from http.client import HTTPResponse
+
 from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -69,10 +71,18 @@ def user_register(request):
 
 @login_required
 def profile(request):
-	user_profile = Profile.objects.get(user=request.user)
+	user_profile = User.objects.get(username=request.user)
 	return render(request, 'account/profile.html', {"user_profile" : user_profile })
 
 
 @login_required
 def edit_profile(request):
-	pass
+	user = request.user
+	form = Profileform(instance=user)
+	if request.method == 'POST':
+		form = Profileform(data=request.POST, instance=user)
+		if form.is_valid():
+			form.save()
+			# return redirect('profile')
+
+	return render(request, 'account/edit_profile.html', {"form" : form })
