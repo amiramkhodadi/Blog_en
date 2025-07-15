@@ -1,7 +1,12 @@
 from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from .forms import Loginform
+from .forms import Loginform, Profileform
+from django.contrib.auth.decorators import login_required
+
+from .models import Profile
+
+
 def user_login(request):
 
 	# code zir braye inke karbari k login karde dg natone vared safe log in beshe
@@ -61,3 +66,13 @@ def user_register(request):
 
 
 	return render(request, 'account/register.html',context)
+
+@login_required
+def profile(request):
+	user_profile = Profile.objects.get(user=request.user)
+	return render(request, 'account/profile.html', {"user_profile" : user_profile })
+
+
+@login_required
+def edit_profile(request):
+	pass

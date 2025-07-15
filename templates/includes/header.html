@@ -2,7 +2,7 @@
 <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
+          <a class="navbar-brand" href="{% url "home" %}"><h2>Stand Blog<em>.</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,6 +31,7 @@
                 {% if request.user.is_authenticated%}
                 <li class="nav-item">
                     <div class="d-flex">
+                    <a href="{% url 'profile' %}">
                         {% if user.profile.image.url %}
                              <img src="{{ user.profile.image.url }}" class="rounded-circle " width="30" height="30" alt="no picture">
                             {% else %}
@@ -39,11 +40,12 @@
                             {% endif %}
                             </img>
                             {% if user.first_name %}
-                             <a class="nav-link" href="">{{ user.first_name}}</a>
+                             <a class="nav-link" href="{% url 'profile' %}">{{ user.first_name}}</a>
                              {% else %}
-                             <a class="nav-link" href="">{{ user.username}}</a>
+                             <a class="nav-link" href="{% url 'profile' %}">{{ user.username}}</a>
                              {% endif %}
-                         <a class="nav-link  badge-danger  " href="/logout" >Log out</a>
+                    </a>
+                         <a class="nav-link  badge-danger  " href="{% url 'logout' %}" >Log out</a>
                     </div>
                 </li>
                 {% else %}

@@ -2,6 +2,8 @@ from django import  forms
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 
+from account.models import Profile
+
 
 class Loginform(forms.Form):
     username = forms.CharField(max_length=100 , widget=forms.TextInput(attrs={'class':'input100','placeholder':'Username'}))
@@ -14,3 +16,10 @@ class Loginform(forms.Form):
             return self.cleaned_data['password']
 
         raise ValidationError('Username or password is incorrect')
+
+
+class Profileform(forms.Form):
+    class Meta:
+        model = Profile
+        exclude = ['user']
+
