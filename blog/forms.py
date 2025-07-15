@@ -55,4 +55,4 @@ class MassageForm(forms.ModelForm):
       widgets = {
           "name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Name : '}),
           "title": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Title : '}),
-      }`
+      }
