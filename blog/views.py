@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.defaulttags import querystring
 from django.utils import timezone
 from django.views import View
-from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView
+from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView
 
 from blog.models import Article, Category, Comment, Message
 from blog.forms import  MassageForm
@@ -160,6 +160,22 @@ def contact_us(request):
 #
 #
 #
-
+ # class MassageView(CreateView):
+ #        modeli k mikhahim obj jadid create konim
+ #     model = Message
+ #        feild haii az model k mikham form ro ba tavajoh b ona drst konim
+ #     fields = ('name', 'email', 'message')
+ #        esm templati k qarre form massage sakhte beshe
+ #     template_name = ''
+ #        zamani k obj dar dat base sakhte shd b  in safe bar migarde
+ #     success_url = '/'
+ #     def form_valid(self, form):
+ #         instance = form.save(commit=False)
+ #            to code zir mitonim instance mord nazaremono taqir bedim k dar nahayt ono save konim
+ #         instance.author = self.request.user
+ #         instance.save()
+ #         return super().form_valid(form)
+ #
+ #
 
 
