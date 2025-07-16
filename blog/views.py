@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.defaulttags import querystring
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views import View
-from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView, UpdateView, \
+    DeleteView
 
 from blog.models import Article, Category, Comment, Message
 from blog.forms import  MassageForm
@@ -178,18 +180,30 @@ def contact_us(request):
  #
  #
 
-            in class bar asas id kar mikone  v ma baid moqe url ha mesl zir amal konim v y id behesh pass bedim
-            path('message_edit/<int:pk>' , view.MessageUpdateView.as_view() , name = 'update-massage')
-class MessageUpdateView(UpdateView):
-        objecty  ba id k mikhahim az in model update konim
-    model = Message
-        templati k qarre update tosh bramon formi bsaze  k ma tosh on feild haro update konim
-    template_name = ''
-
-        field haii  k qarre dar template jadid sakhte beshe  ta dar model ma upodate beshan
-    fields = ('')
-
-barye frakhani v estefade az in class ham mitonim jloye model hamon y dokme braye update bzarim v mannd zir behsh href bedim v ono b template edit hedayat konim
-href = "{% url 'update-massage'.object.id %}"
 
 
+
+
+            #
+            # in class bar asas id kar mikone  v ma baid moqe url ha mesl zir amal konim v y id behesh pass bedim
+            # path('message_edit/<int:pk>' , view.MessageUpdateView.as_view() , name = 'update-massage')
+# class MessageUpdateView(UpdateView):
+#         objecty  ba id k mikhahim az in model update konim
+#     model = Message
+#         templati k qarre update tosh bramon formi bsaze  k ma tosh on feild haro update konim
+#     template_name = ''
+#
+#         field haii  k qarre dar template jadid sakhte beshe  ta dar model ma upodate beshan
+#     fields = ('')
+#
+# barye frakhani v estefade az in class ham mitonim jloye model hamon y dokme braye update bzarim v mannd zir behsh href bedim v ono b template edit hedayat konim
+# href = "{% url 'update-massage'.object.id %}"
+#
+
+# class deleteMessage(DeleteView):
+#     model = Message
+#         zamani k delete anjam shde b in template bar gardande mishim
+#
+#     success_url = reverse_lazy("url name ")
+#
+#      mannd update k dar bala avorde shde bar asas pk kar mikone v ma baid az tariq y button id ono mesl href bala pass bedhim
