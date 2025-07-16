@@ -145,7 +145,21 @@ def contact_us(request):
 
 
 
-
+# class ContectUsFormView(FormView):
+#             form k qarre sakhte beshe bar asas kodm mode form bashe 1
+#     form_class = MassageForm
+#             mige k form maro koja besaze
+#     template_name = 'blog/contact_us.html'
+#             bara zamani k form ma b drsty kar krd v valid bod v data dar data base save shd  ma b in masir hedayat mishim
+#     success_url = '/'
+#              baraye save krdn form to data base
+#     def form_valid(self, form):
+#         form_data = form.cleaned_data
+#         Message.objects.create(**form_data)
+#         return super().form_valid(form)
+#
+#
+#
 
 
 
