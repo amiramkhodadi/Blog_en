@@ -10,3 +10,8 @@ urlpatterns = [
     path('contact_us/', views.contact_us, name='contact_us'),
 
 ]
+
+# tamrin :
+
+# path('article/list', views.ArticleListView.as_view(), name='articles_list'),
+# path('article/list', views.ArticleListTemplateView.as_view(), name='articles_list'),

@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views import View
+from django.views.generic import TemplateView, RedirectView
 
 from blog.models import Article, Category, Comment, Message
 from blog.forms import  MassageForm
@@ -62,3 +64,38 @@ def contact_us(request):
     else:
         form = MassageForm()
     return render(request , 'blog/contact_us.html' ,    {'form': form})
+
+
+
+# tamrin :
+
+# class ArticleListView(View):
+#     # noinspection PyMethodMayBeStatic
+#     def get(self, request):
+#         page_obj = Article.objects.all()
+#         return render(request , 'blog/article_list.html' , {'articles' : page_obj })
+
+
+
+# class ArticleListTemplateView(TemplateView):
+#     template_name = 'blog/article_list.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['articles'] = Article.objects.all()
+#         return context
+
+
+
+# class ArticleCounterRedirectView(RedirectView):
+#
+#     permanent = False
+#
+#     query_string = True
+#
+#     pattern_name = "article-detail"
+#
+#     def get_redirect_url(self, *args, **kwargs):
+#         article = get_object_or_404(Article, pk=kwargs["pk"])
+#         article.update_counter()
+#         return super().get_redirect_url(*args, **kwargs)
