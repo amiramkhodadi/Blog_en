@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.autoreload import start_django
 
 from blog.models import Article, Category, Comment, Message
 
