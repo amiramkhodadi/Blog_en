@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.defaulttags import querystring
 from django.utils import timezone
 from django.views import View
-from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView, UpdateView
 
 from blog.models import Article, Category, Comment, Message
 from blog.forms import  MassageForm
@@ -177,5 +177,19 @@ def contact_us(request):
  #         return super().form_valid(form)
  #
  #
+
+            in class bar asas id kar mikone  v ma baid moqe url ha mesl zir amal konim v y id behesh pass bedim
+            path('message_edit/<int:pk>' , view.MessageUpdateView.as_view() , name = 'update-massage')
+class MessageUpdateView(UpdateView):
+        objecty  ba id k mikhahim az in model update konim
+    model = Message
+        templati k qarre update tosh bramon formi bsaze  k ma tosh on feild haro update konim
+    template_name = ''
+
+        field haii  k qarre dar template jadid sakhte beshe  ta dar model ma upodate beshan
+    fields = ('')
+
+barye frakhani v estefade az in class ham mitonim jloye model hamon y dokme braye update bzarim v mannd zir behsh href bedim v ono b template edit hedayat konim
+href = "{% url 'update-massage'.object.id %}"
 
 
