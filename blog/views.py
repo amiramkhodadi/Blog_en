@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils import timezone
 from django.views import View
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView
 
 from blog.models import Article, Category, Comment, Message
 from blog.forms import  MassageForm
@@ -87,7 +88,7 @@ def contact_us(request):
 
 
 
-# class ArticleCounterRedirectView(RedirectView):
+# class ArticleRedirectView(RedirectView):
 #
 #     permanent = False
 #
@@ -99,3 +100,29 @@ def contact_us(request):
 #         article = get_object_or_404(Article, pk=kwargs["pk"])
 #         article.update_counter()
 #         return super().get_redirect_url(*args, **kwargs)
+#
+# class ArticleListView(ListView):
+#             ba tavajoh b model zir miad y listy az khorojo b ma tahvil mide
+#     model = Article
+#              code paiin bra zamanie k ma esmi k b template pass midimo baid inja benevisim
+#     context_object_name = 'articles'
+#              ag b sorat drst esm template mesl : article_list.html benevisim dg niazi nis  k esm template ro besh bedim dar qeir in sorat baid bhsh bgim k dar kodom template khoro ji ro be ma neshon  bde
+#     template_name = 'blog/article_list.html'
+#                 ba hmin y khat code cofie k bgim k chnd ta X dar safe ma bashnd
+#                 az page_obj b onvan vorodi dar qesmat tag haye html baid estefade konim ta b drsty kar kone
+#     paginate_by = 1  # if pagination is desired
+#                 ag niazi b shart gozari dar list jahat namayesh dashte bashim ba query set onaro modriat mikonim
+#     queryset = Article.objects.filter()
+#
+#     ag bkhahim k joda az data ii k khodesh az model migire chiz dg ii hm behesh ezafe konim az def pain estefade mikonim  mannd zir
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["now"] = timezone.now()
+#         return context
+
+
+
+
+
+
+
