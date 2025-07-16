@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.template.defaulttags import querystring
 from django.utils import timezone
 from django.views import View
 from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView
@@ -119,6 +120,28 @@ def contact_us(request):
 #         context = super().get_context_data(**kwargs)
 #         context["now"] = timezone.now()
 #         return context
+
+
+# class ArticleDetailView(DetailView):
+#             ag az qabl hme chiz ro rayat krde bashim ba hmin y khat code paiin jozayat b sadegi b ma namayesh dade mishand
+#     model = Article
+#                 dar halamt mannol k dar nazr migire k esm file b sorat modelname_detail,html hastesh vli ag chize dg ii bod inja baid behesh bgim
+#     # template_name = 'blog/article_detail.html'
+#             dar halat mamol dar template baid az hmin esm model v onvan vorodi jahat por krdn feild ha estefade konim vli ag vorodi template bkhaim chize dg ii bashe inja badi meqdar dehi beshe
+#     context_object_name = 'article'
+#         dar hengam namayesh jozayat posty ag bkhahim filter v ya sharty braye on post dashte bashim   az  in ravesh estefade mikonim
+#     queryset = Article.objects.filter()
+#             dar halat mamol <int  : pk > ==>> minevism vli ag jaye pk chiz dg neveshtim inja baid bhsh moarefi konim
+#     pk_url_kwarg = 'pk'
+#     ag <slug:X> ==>> dar halat mamol b jaye X slug minevisim dar qeir in sorat baid paiin esmesho moarefi konim
+#     slug_url_kwarg = 'slug'
+#             ag field slugi k dar model hamon moarefi krde im esmi b qeir az slug dashte bashnad inja baid behsh bgim chie
+#     slug_field = 'slug'
+#
+#         ag bkhahim joda az detail chizi ezafe tar ham vared template konim az in def paiin estefade mikonim
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['name'] = "AMIR"
 
 
 
