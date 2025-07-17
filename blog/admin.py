@@ -31,7 +31,7 @@ class FilterByTitle(admin.SimpleListFilter):
 # Register your models here.
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title','content' , 'status' , 'author']
+    list_display = ['title','content' , 'status' , 'author',"show_image"]
 
              # in feture kheili khobe v miad to on safe y filter sazio ro bar asas model ha bramon anjam mide
     list_filter = ['status',FilterByTitle]

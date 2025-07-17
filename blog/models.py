@@ -3,6 +3,7 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.html import format_html
 from django.utils.text import slugify
 
 
@@ -78,7 +79,11 @@ class Article(models.Model):
 
 
 
-
+    def show_image(self):
+        if self.image:
+            return format_html(f'<img src="{self.image.url} " width="60" height="50" />')
+        return format_html("<h3 style = 'color:red '> no picture</h3>")
+    show_image.short_description = 'تصویر مقاله'
 
 
 
