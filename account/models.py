@@ -11,7 +11,10 @@ class Profile(models.Model):
     address = models.CharField(max_length=50 , null=True ,blank=True)
     city = models.CharField(max_length=50 , null=True ,blank=True)
 
-
+    class Meta:
+        # dar admin panel in modelo b do shekle mofrad v jam seda zade mishe v ma baid braye shakhsi sazi behesh bgim k mofrd v jame on chi jori bashe
+        verbose_name = "  حساب کاربری"
+        verbose_name_plural = "حساب های کاربری"
 
     def __str__(self):
         return f'{self.user.username} , {self.full_name}'

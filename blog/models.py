@@ -11,6 +11,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        # dar admin panel in modelo b do shekle mofrad v jam seda zade mishe v ma baid braye shakhsi sazi behesh bgim k mofrd v jame on chi jori bashe
+        verbose_name = "  دسته بندی "
+        verbose_name_plural = "دسته بندی ها"
+
 
 class ArticleManager(models.Manager):
     def get_queryset(self):
@@ -30,6 +35,8 @@ class Meta:
     # verbose_name = 'X' ==>> to admin panel dg model ha b esm X seda zade mishan
     # verbose_name_plural = 'Xes' ==>> to admin panel zamani k majmoeii az X ha ro dashte bashnd v b ma onaro Xes moarefi mikone v ma
     # in do mord bala braye shakhsi sazi  and v braye modriat b zaban farsi besyar kar amad and
+
+
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
@@ -63,6 +70,12 @@ class Article(models.Model):
         # class Meta:
         #     ordering = ['-created_date']
 
+    class Meta:
+            # dar admin panel in modelo b do shekle mofrad v jam seda zade mishe v ma baid braye shakhsi sazi behesh bgim k mofrd v jame on chi jori bashe
+            verbose_name = " مقاله "
+            verbose_name_plural = "مقالات "
+
+
 
 
 
@@ -84,6 +97,11 @@ class Comment (models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     parent = models.ForeignKey('self', blank=True, null=True, related_name='replies', on_delete=models.CASCADE)
 
+    class Meta:
+            # dar admin panel in modelo b do shekle mofrad v jam seda zade mishe v ma baid braye shakhsi sazi behesh bgim k mofrd v jame on chi jori bashe
+            verbose_name = " نظر "
+            verbose_name_plural = "نظرات "
+
     def __str__(self):
         return f'{self.author} - {self.content}'
 
@@ -94,6 +112,11 @@ class Message(models.Model):
     email = models.EmailField()
     created_date = models.DateTimeField(auto_now_add=True)
 
+
+    class Meta:
+            # dar admin panel in modelo b do shekle mofrad v jam seda zade mishe v ma baid braye shakhsi sazi behesh bgim k mofrd v jame on chi jori bashe
+            verbose_name = " پیام "
+            verbose_name_plural = " پیام ها  "
 
     def __str__(self):
         return f'{self.name} , {self.title} '
