@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -79,10 +80,12 @@ def like(request , slug , pk):
     try:
         like = Like.objects.get(article = article, user_id=request.user.id)
         like.delete()
+        return JsonResponse({'response': 'unliked'})
     except Like.DoesNotExist :
         Like.objects.create(article_id = pk, user_id=request.user.id)
+        return JsonResponse({'response': 'liked'})
 
-    return redirect('article_detail', slug=slug)
+    # return redirect('article_detail', slug=slug)
 
 
 
