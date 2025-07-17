@@ -22,7 +22,6 @@ Home Page
                 <ul class="post-info">
                   <li><a href='{{article.get_absolute_url}}>{{ article.author }}</a></li>
                   <li><a href='{{article.get_absolute_url}}>{{ article.created_date}}</a></li>
-                  <li><a >12 Comments</a></li>
                 </ul>
               </div>
             </div>
@@ -34,28 +33,29 @@ Home Page
     </div>
     <!-- Banner Ends Here -->
 
-    <section class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-8">
-                  <span>Stand Blog HTML5 Template</span>
-                  <h4>Creative HTML Template For Bloggers!</h4>
-                </div>
-                <div class="col-lg-4">
-                  <div class="main-button">
-                    <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+{#    <section class="call-to-action">#}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-12">#}
+{#            <div class="main-content">#}
+{#              <div class="row">#}
+{#                <div class="col-lg-8">#}
+{#                  <span>Stand Blog HTML5 Template</span>#}
+{#                  <h4>Creative HTML Template For Bloggers!</h4>#}
+{#                </div>#}
+{#                <div class="col-lg-4">#}
+{#                  <div class="main-button">#}
+{#                    <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}
+   <br>
+    <br>
 
     <section class="blog-posts">
       <div class="container">
@@ -71,21 +71,16 @@ Home Page
                     </div>
                     <div class="down-content">
                       <span>{{ article.category.first }}</span>
-                      <a href="post-details.html"><h4>{{ article.title}}</h4></a>
+                      <a href='{{article.get_absolute_url}}'><h4>{{ article.title}}</h4></a>
                       <ul class="post-info">
-                        <li><a href="#">{{ article.author.get_full_name }}</a></li>
-                        <li><a href="#">{{ article.created_date}}</a></li>
-                        <li><a href="#">12 Comments</a></li>
+                        <li><a href='{{article.get_absolute_url}}'>{{ article.author.get_full_name }}</a></li>
+                        <li><a href='{{article.get_absolute_url}}'>{{ article.created_date}}</a></li>
                       </ul>
                       <p>{{ article.content|truncatewords:20 }}</p>
                       <div class="post-options">
                         <div class="row">
                           <div class="col-6">
-                            <ul class="post-tags">
-                              <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Beauty</a>,</li>
-                              <li><a href="#">Nature</a></li>
-                            </ul>
+
                           </div>
                           <div class="col-6">
                             <ul class="post-share">

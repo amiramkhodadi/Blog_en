@@ -1,5 +1,5 @@
 {% for article in objects %}
-    <li><a href="post-details.html">
+    <li><a href='{{article.get_absolute_url}}'>
       <h5>{{ article.title}}</h5>
       <span>{{ article.created_date }}</span>
     </a></li>

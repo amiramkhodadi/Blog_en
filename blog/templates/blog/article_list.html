@@ -18,27 +18,29 @@
 
     <!-- Banner Ends Here -->
 
-    <section class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-8">
-                  <span>Stand Blog HTML5 Template</span>
-                  <h4>Creative HTML Template For Bloggers!</h4>
-                </div>
-                <div class="col-lg-4">
-                  <div class="main-button">
-                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+{#    <section class="call-to-action">#}
+{#      <div class="container">#}
+{#        <div class="row">#}
+{#          <div class="col-lg-12">#}
+{#            <div class="main-content">#}
+{#              <div class="row">#}
+{#                <div class="col-lg-8">#}
+{#                  <span>Stand Blog HTML5 Template</span>#}
+{#                  <h4>Creative HTML Template For Bloggers!</h4>#}
+{#                </div>#}
+{#                <div class="col-lg-4">#}
+{#                  <div class="main-button">#}
+{#                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </section>#}
+    <br>
+    <br>
 
 
     <section class="blog-posts grid-system">
@@ -51,25 +53,22 @@
                 <div class="col-lg-6">
                   <div class="blog-post">
                     <div class="blog-thumb">
-                      <img src="{{ article.image.url}}" alt="">
+                      <a href='{{article.get_absolute_url}}'><img src="{{ article.image.url}}" alt=""></a>
                     </div>
                     <div class="down-content">
                       <span>{{ article.category.first}}</span>
                       <a href='{{article.get_absolute_url}}'><h4>{{ article.title}}</h4></a>
                       <ul class="post-info">
-                        <li><a href="#">{{ article.title}}</a></li>
-                        <li><a href="#">{{ article.created_date}}</a></li>
-                        <li><a href="#">12 Comments</a></li>
+                        <li>{{ article.title}}</li>
+                        <li>{{ article.created_date}}</li>
+                          <br>
+                        <li>{{ article.comments.count}} Comments</li>
                       </ul>
                         <p>{{ article.content}}</p>
                      <div class="post-options">
                         <div class="row">
                           <div class="col-lg-12">
-                            <ul class="post-tags">
-                              <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Best Templates</a>,</li>
-                              <li><a href="#">TemplateMo</a></li>
-                            </ul>
+
                           </div>
                         </div>
                       </div>
