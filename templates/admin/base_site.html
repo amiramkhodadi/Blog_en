@@ -1,6 +1,7 @@
 {% extends "admin/base.html" %}
+{% load static %}
 
-{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block title %}مدریت فروشگاه {% endblock %}
 
 {% block branding %}
 <div id="site-name"><a href="{% url 'admin:index' %}"> مدریت جنگو</a></div>
@@ -10,3 +11,7 @@
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
+
+
+{#add this for new font for admin panel #}
+{% block extrastyle %}<link rel="stylesheet" href="{% static 'css/override.css' %}" type="text/css">{% endblock %}
