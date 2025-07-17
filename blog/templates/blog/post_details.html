@@ -71,9 +71,11 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <ul class="post-tags">
-                                                        <li><i class="fa fa-tags"></i></li>
-                                                        <li><a href="#">Best Templates</a>,</li>
-                                                        <li><a href="#">TemplateMo</a></li>
+                                                        {% if has_liked %}
+                                                        <li><a href="{% url "like" article.slug article.id %}"><i style="font-size: 20px" class="fa fa-heart"> 2</i></a></li>
+                                                        {% else %}
+                                                        <li><a href="{% url "like" article.slug article.id %}"><i style="font-size: 20px" class="fa fa-heart-o"> 2</i></a></li>
+                                                        {% endif %}
                                                     </ul>
                                                 </div>
                                                 <div class="col-6">

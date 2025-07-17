@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.autoreload import start_django
 
-from blog.models import Article, Category, Comment, Message
+from blog.models import Article, Category, Comment, Message,Like
 
 
 class FilterByTitle(admin.SimpleListFilter):
@@ -46,3 +46,4 @@ admin.site.register(Category)
 admin.site.register(Comment)
 admin.site.register(Message)
 
+admin.site.register(Like)

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -8,17 +9,20 @@ from django.views import View
 from django.views.generic import TemplateView, RedirectView, FormView, ListView, DetailView, CreateView, UpdateView, \
     DeleteView
 
-from blog.models import Article, Category, Comment, Message
+from blog.models import Article, Category, Comment, Message,Like
 from blog.forms import  MassageForm
 
 
 def article_detail(request , slug):
     article = get_object_or_404(Article, slug=slug)
+    has_liked = False
+    if request.user.is_authenticated:
+        has_liked = article.likes.filter(user=request.user).exists()
     if request.method == "POST":
         comment_id = request.POST.get('comment_id')
         content = request.POST.get('content')
         Comment.objects.create(content=content, article=article, author=request.user, parent_id =comment_id)
-    return render(request , 'blog/post_details.html',{'article' : article })
+    return render(request , 'blog/post_details.html',{'article' : article ,'has_liked': has_liked })
 
 def article_list(request ):
     articles = Article.objects.all()
@@ -68,6 +72,18 @@ def contact_us(request):
     else:
         form = MassageForm()
     return render(request , 'blog/contact_us.html' ,    {'form': form})
+
+@login_required
+def like(request , slug , pk):
+    article = get_object_or_404(Article, slug=slug, id=pk)
+    try:
+        like = Like.objects.get(article = article, user_id=request.user.id)
+        like.delete()
+    except Like.DoesNotExist :
+        Like.objects.create(article_id = pk, user_id=request.user.id)
+
+    return redirect('article_detail', slug=slug)
+
 
 
 

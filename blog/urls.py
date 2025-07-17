@@ -8,7 +8,7 @@ urlpatterns = [
     path('article/category/<int:pk>', views.category_detail, name='category_detail'),
     path('article/search/', views.search_article, name='search_article'),
     path('contact_us/', views.contact_us, name='contact_us'),
-
+    path('article/like/<slug:slug>/<int:pk>', views.like, name='like'),
 ]
 
 # tamrin :
